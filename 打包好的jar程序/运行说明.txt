@@ -1,0 +1,35 @@
+有jdk环境可直接运行，jdk要大于等于8，前提是按照我的方法在mysql中建好数据库，不然没的连接
+
+Create database studentsys；
+
+create table Student(
+Snum  varchar(20)  primary key,
+Sname  Varchar(20),
+Ssex varchar(2),
+Sethnic varchar(4),
+Shome Varchar(20),
+Syear varchar(10),
+Smajor Varchar(10),
+Scollege varchar(10),
+Sbirth varchar(10),
+Spoint varchar(10)
+);
+
+
+create table Course(
+Cnum  varchar(10)  primary key,
+Cname  Varchar(20),
+Cteather varchar(10),
+Cplace varchar(10),
+Cpoint smallint,
+Cratio float (2,2)
+);
+
+create table SC(
+Snum  varchar(20),
+Cnum  varchar(10),
+Grade float(4,2),
+primary key (Snum,Cnum),
+foreign key(Snum) references Student(Snum),
+foreign key(Cnum) references Course(Cnum)
+);
